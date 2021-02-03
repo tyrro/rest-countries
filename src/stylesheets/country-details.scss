@@ -1,0 +1,13 @@
+.country-details {
+  &-flag {
+    &__image {
+      width: 25 px;
+      height: 25 px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
