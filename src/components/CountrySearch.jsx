@@ -1,12 +1,19 @@
-import React, { useContext } from "react";
-import { CountryContext } from "../context/CountryContext";
+import React, { useContext, useRef } from 'react';
+import { debounce } from 'throttle-debounce';
+
+import { CountryContext } from '../context/CountryContext';
 
 const CountySearch = () => {
   const { searchCountriesByCapital } = useContext(CountryContext);
 
-  const handleCountrySearch = (event) => {
-    console.log(event.target.value);
-    searchCountriesByCapital(event.target.value);
+  const debouncedSearch = useRef(
+    debounce(1000, inputParam => {
+      searchCountriesByCapital(inputParam);
+    }),
+  ).current;
+
+  const handleCountrySearch = event => {
+    debouncedSearch(event.target.value);
   };
   return (
     <div className="country-search">
@@ -16,7 +23,7 @@ const CountySearch = () => {
           type="text"
           id="capital"
           placeholder="Capital"
-          onChange={(event) => handleCountrySearch(event)}
+          onChange={event => handleCountrySearch(event)}
         />
       </div>
     </div>

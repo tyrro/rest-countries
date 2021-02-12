@@ -6,10 +6,10 @@ const CountryDetails = () => {
 
   return (
     <div className="country-details">
-      <div className="country-details-header">Country Details</div>
+      <div className="country-details__header">Country Details</div>
 
       {countryDetails.map(country => (
-        <>
+        <div className="country-details__description" key={country.name}>
           <div className="country-details-country-name">Country Name: {country.name}</div>
           <div className="country-details-capital">Capital: {country.capital}</div>
           <div className="country-details-languages">
@@ -21,7 +21,7 @@ const CountryDetails = () => {
               <img src={country.flag} alt="" />
             </div>
           </div>
-        </>
+        </div>
       ))}
     </div>
   );

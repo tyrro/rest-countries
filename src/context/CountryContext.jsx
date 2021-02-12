@@ -1,5 +1,5 @@
-import React, { createContext, useState } from "react";
-import axios from "axios";
+import React, { createContext, useState } from 'react';
+import axios from 'axios';
 
 export const CountryContext = createContext();
 
@@ -7,31 +7,27 @@ const CountryProvider = ({ children }) => {
   const [countries, setCountries] = useState([]);
   const [countryDetails, setCountryDetails] = useState([]);
 
-  const searchCountriesByCapital = (capital) => {
+  const searchCountriesByCapital = capital => {
     axios
       .get(`https://restcountries.eu/rest/v2/capital/${capital}`)
-      .then((response) => {
+      .then(response => {
         // handle success
-        console.log(response);
         setCountries(response.data);
       })
-      .catch((error) => {
+      .catch(error => {
         // handle error
-        console.log(error);
       });
   };
 
-  const fetchCountryDetails = (country) => {
+  const fetchCountryDetails = country => {
     axios
       .get(`https://restcountries.eu/rest/v2/name/${country}`)
-      .then((response) => {
+      .then(response => {
         // handle success
-        console.log(response);
         setCountryDetails(response.data);
       })
-      .catch((error) => {
+      .catch(error => {
         // handle error
-        console.log(error);
       });
   };
 
