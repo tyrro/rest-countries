@@ -23,13 +23,15 @@ const CountrySearchResults = () => {
   return (
     <div className="country-search-results">
       <div className="country-search-results__header">Results</div>
-      <select value={selectedCountry} onChange={event => handleChange(event)}>
-        {countries.map(country => (
-          <option key={country.name} value={country.name}>
-            {country.name}
-          </option>
-        ))}
-      </select>
+      <div className="country-search-results__select">
+        <select value={selectedCountry} onChange={event => handleChange(event)}>
+          {countries.map(country => (
+            <option key={country.name} value={country.name}>
+              {country.name}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 };

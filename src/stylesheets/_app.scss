@@ -1,7 +1,11 @@
 .app {
+  align-items: flex-start;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
   > div {
-    flex: 1;
+    border: 1px solid #ccc;
+    padding: 10px;
   }
 }

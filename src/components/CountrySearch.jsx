@@ -17,8 +17,8 @@ const CountySearch = () => {
   };
   return (
     <div className="country-search">
-      <div className="country-search-header">Search With Capital</div>
-      <div className="country-search-input">
+      <div className="country-search__header">Search With Capital</div>
+      <div className="country-search__input">
         <input
           type="text"
           id="capital"
