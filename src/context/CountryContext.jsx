@@ -9,25 +9,27 @@ const CountryProvider = ({ children }) => {
 
   const searchCountriesByCapital = capital => {
     axios
-      .get(`https://restcountries.eu/rest/v2/capital/${capital}`)
+      .get(`https://restcountries.com/v2/capital/${capital}`)
       .then(response => {
         // handle success
         setCountries(response.data);
       })
       .catch(error => {
         // handle error
+        console.log(error);
       });
   };
 
   const fetchCountryDetails = country => {
     axios
-      .get(`https://restcountries.eu/rest/v2/name/${country}`)
+      .get(`https://restcountries.com/v2/name/${country}`)
       .then(response => {
         // handle success
         setCountryDetails(response.data);
       })
       .catch(error => {
         // handle error
+        console.log(error);
       });
   };
 
